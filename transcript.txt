@@ -1,0 +1,69 @@
+﻿Transcript
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+Nelson Xavier Britto: So, starting with the first question, How does Java meditation of polymorphism support the principle of oriented programming? And what are their potential pitfalls that you should avoid?
+Sonal Nikhade: Of the can you please repeat. Okay, I have the okay.
+Nelson Xavier Britto: Yes. Yes. I am.
+Sonal Nikhade: Implementation of polymorphism Principles of oops and what potential but falls should be so when we talk about Java polymorphism, it includes Java method overloading and method, overriding that is compiled at compile time. We have Method Overloading where, in the same class, we have methods for different parameters but the method names are same.
+Sonal Nikhade: And for method overriding that happens at run time. and the one method is in parent class. The other method is in child class the method signature has to be same. The only thing is the return type can be covariant and
+Nelson Xavier Britto: 
+Sonal Nikhade: And that is already run time.
+Nelson Xavier Britto: so, in terms of pitfalls to be avoided,
+Sonal Nikhade: 
+Nelson Xavier Britto: one would be that they should have similar signature.
+Sonal Nikhade: okay, kind of that. Yeah, so as I said for over writing, so the return type should be covariant. That is the parent return type, whatever it is the Return type should be same or child of the one. that the parent class has return type of, and What is number of parameters would be saying the signature should be same for overriding and for overloading, there can be And number of parameters, that can be used.
+Sonal Nikhade: Yeah, I think.
+Nelson Xavier Britto: Moving on to the next question, this will be on microservices. So, how do you handle data consistency across multiple microservices,…
+Sonal Nikhade: Okay.
+Nelson Xavier Britto: especially when they relay on different databases?
+Sonal Nikhade: The reliant different database and we need to handle data consistency across My
+Sonal Nikhade: 
+Sonal Nikhade: so if I have two different micro service and they do have different to database, why would it have inconsistency? Because both are using different data, right?
+Nelson Xavier Britto: Okay.
+Sonal Nikhade: I'm just trying to understand the question.
+Nelson Xavier Britto: So initially, if you think there will be data consistency on using multiple microservices and different database, you can reason that if you think there won't be any incomes there, there are already consistent. You don't have to Aggregate to it.
+Nelson Xavier Britto: So you're saying it won't be.
+Sonal Nikhade: Okay.
+Nelson Xavier Britto: There won't be any consistency issues when there are separated already.
+Sonal Nikhade: and until we have a shared data that we are referring to, there shouldn't be an inconsistency.
+Nelson Xavier Britto: Okay, Moving on to the next question, this would be on even driven system. so, How will you ensure order of processing?
+Sonal Nikhade: Okay.
+Nelson Xavier Britto: For events.
+Sonal Nikhade: 
+Nelson Xavier Britto: That are in the interdependent. How would you process them?
+Sonal Nikhade: That independent, right. So
+Nelson Xavier Britto: Sorry interdependent, not independent.
+Sonal Nikhade: processing of events that are interdependent.
+Sonal Nikhade: Okay.
+Sonal Nikhade: So there can be a particular. ID or something, through which we can. determine for example, if in a normal microservice We have correlation ID, which we use it,…
+00:05:00
+Nelson Xavier Britto: Okay.
+Sonal Nikhade: when the request is initiated till the end. So, if I want to determine that request uniquely, then to trace that, or to track that, I have that correlation ID that I can use to check for that particular request. Similarly, there would be something in this as well through which we can identify the Particular request and based on that. the interdependent events can verify, if they are working on the same request or not.
+Nelson Xavier Britto: Got it. So, moving on to Mongo Explain how MongoDB handles. Horizontal scaling.
+Sonal Nikhade: Horizontal scaling. so,
+Sonal Nikhade: it creates kind of replicas or of the databases so that even if one of it fails then we have the replica of it So there is no data loss in that case, we can use the data from the replica replicated or the other this thing and I think I got moved it. so when we have multiple instances on these servers of these, same What So, if my application is deployed on one of the instances and I am creating multiple instances. So that is what it is a horizontal scaling, similarly, when we talk about MongoDB as well, so we have that particular dB to be replicated.
+Sonal Nikhade: and whatever number of times that we decide on as per the usage,
+Nelson Xavier Britto: We want to question in springboard, while scaling an application, what are some of the performance considerations you take into account?
+Sonal Nikhade: some performance considerations Take into account.
+Sonal Nikhade: So when we are scaling an application then, just the way I said, if we have application on one instance, and I am multiplying those instances, then if I am using any data from the database, so then there can be instance, inconsistency, for example, once we had a schedule, which
+Sonal Nikhade: In a microservice. and we had my two multiple instances for it and that scheduler when it's target used to start. So inside the method, it used to get a fetch a flag from the database and it used to check. So in order to keep it consistent,…
+Nelson Xavier Britto: Okay.
+Sonal Nikhade: we used that flag and if the scheduler starts in one and instance, whichever one instance, at the starting. So it is to check that flag. And if the second instance, also starts that scheduler in that case, with that flag, we used to check. So, once they instance picks up that schedulers task and starts running the method, we used to modify the flag. So that whenever other instance picks up and checks the flag, it gets To get the flag as a false. Request to toggle that flag. and then,
+Nelson Xavier Britto: You're saying this is one. How does it Even I mean what? Performance criteria handles
+Sonal Nikhade: So duplicacy the same task would have been run One in one instance and another one in second instance, But that we avoided it using the flag over there.
+Nelson Xavier Britto: Okay. Do you have experience with Kafka using Kafka?
+Sonal Nikhade: I don't have the experience but yeah, I have Tried few things on my,…
+Nelson Xavier Britto: Okay.
+Sonal Nikhade: yeah. On my own.
+Nelson Xavier Britto: How about reactor will be able to? Maybe say,…
+Sonal Nikhade: I think I'm comfortable more with Kafka than react.
+Nelson Xavier Britto: tell involves and
+Nelson Xavier Britto: okay.
+Nelson Xavier Britto: describe any use case, where Kafka data durability feature would be very crucial.
+00:10:00
+Sonal Nikhade: for example, when we are making a payment Or sick GPA.
+Nelson Xavier Britto: Okay.
+Sonal Nikhade: And at times we do get the message saying Server is not done. So it's looks like the Amount or the money has been debited from my account, but it's not yet credited to the receivers account in that. Time maybe because of some server error or some issue internally, but the message that is shown to the user is it would be like we are working on it and it would be resolved in some time. So at that time, Durability like that that is important. we have to have that data wherever we like either we raise it give it back to the sender or with deposit into the receiver but that data has to be there. That is important to
+Nelson Xavier Britto: These are some questions I had Thanks for ing. Cool. So…
+Sonal Nikhade: Okay.
+Nelson Xavier Britto: what I'll be doing is I'll be sharing
+Meeting ended after 00:11:12 👋
